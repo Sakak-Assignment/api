@@ -27,7 +27,7 @@ public class ResearchYear {
     }
 
     private static void validateResearchYear(long year) {
-        if (year < MIN_RESEARCH_YEAR && LocalDateTime.now().getYear() < year) {
+        if (year < MIN_RESEARCH_YEAR || LocalDateTime.now().getYear() < year) {
             throw new IllegalArgumentException("invalid research year");
         }
     }

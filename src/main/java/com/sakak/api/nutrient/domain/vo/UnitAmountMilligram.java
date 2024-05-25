@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Getter
 public class UnitAmountMilligram {
 
+    private static final double MAX_MILLIGRAM = 99999999.0;
+
     @Column(nullable = false)
     private BigDecimal milligram;
 
@@ -25,7 +27,7 @@ public class UnitAmountMilligram {
     }
 
     private static void validateUnitAmountMilligram(double unitAmountMilligram) {
-        if (unitAmountMilligram < 0) {
+        if (unitAmountMilligram < 0 || MAX_MILLIGRAM < unitAmountMilligram) {
             throw new IllegalArgumentException("invalid unit amount milligram");
         }
     }

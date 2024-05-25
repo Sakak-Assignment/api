@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Getter
 public class Calorie {
 
+    private static final double MAX_CALORIE = 99999999.0;
+
     @Column(nullable = false)
     private BigDecimal kcal;
 
@@ -25,7 +27,7 @@ public class Calorie {
     }
 
     private static void validateCalorie(double kcal) {
-        if (kcal < 0) {
+        if (kcal < 0 || MAX_CALORIE < kcal) {
             throw new IllegalArgumentException("invalid Calorie");
         }
     }
