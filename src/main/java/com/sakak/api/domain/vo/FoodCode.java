@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class FoodCode {
 
     @Column(nullable = false)
-    public String code;
+    private String code;
 
     private FoodCode(String code) {
         this.code = code;
@@ -25,7 +25,7 @@ public class FoodCode {
     }
 
     private static void validateCodeForm(String code) {
-        if (Objects.isNull(code) || !Character.isAlphabetic(code.charAt(0))) {
+        if (Objects.isNull(code) || code.isEmpty() || !Character.isAlphabetic(code.charAt(0))) {
             throw new IllegalArgumentException("invalid code form");
         }
     }
