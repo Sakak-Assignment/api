@@ -1,5 +1,6 @@
 package com.sakak.api.domain.vo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import java.util.Objects;
 import lombok.AccessLevel;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class FoodName {
 
+    @Column(nullable = false)
     private String name;
 
     private FoodName(String name) {
