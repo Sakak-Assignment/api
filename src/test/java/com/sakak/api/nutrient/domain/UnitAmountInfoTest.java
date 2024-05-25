@@ -1,10 +1,9 @@
-package com.sakak.api.nutrient.domain.vo;
+package com.sakak.api.nutrient.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import com.sakak.api.nutrient.domain.UnitAmountInfo;
 import java.math.BigDecimal;
 import java.util.stream.Stream;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
