@@ -1,4 +1,4 @@
-package com.sakak.api.domain.vo;
+package com.sakak.api.food.domain.vo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

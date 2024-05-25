@@ -3,8 +3,6 @@ package com.sakak.api.food.domain.vo;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.sakak.api.domain.vo.FoodCode;
-import com.sakak.api.domain.vo.MakerName;
 import java.util.stream.Stream;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,4 +1,4 @@
-package com.sakak.api.presentation;
+package com.sakak.api.food.presentation;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

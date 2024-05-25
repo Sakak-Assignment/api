@@ -1,8 +1,8 @@
-package com.sakak.api.domain;
+package com.sakak.api.food.domain;
 
-import com.sakak.api.domain.vo.FoodCode;
-import com.sakak.api.domain.vo.FoodName;
-import com.sakak.api.domain.vo.MakerName;
+import com.sakak.api.food.domain.vo.FoodCode;
+import com.sakak.api.food.domain.vo.FoodName;
+import com.sakak.api.food.domain.vo.MakerName;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
