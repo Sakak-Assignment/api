@@ -11,8 +11,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import java.math.BigDecimal;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -26,9 +24,7 @@ public class Nutrient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "food_id")
-    private Food food;
+    private Long foodId;
     private ResearchYear researchYear;
     private ServingSize servingSize;
     private RefName refName;
@@ -43,7 +39,7 @@ public class Nutrient {
     private UnitAmountGram transFat;
 
     private Nutrient(
-        Food food,
+        Long foodId,
         ResearchYear researchYear,
         ServingSize servingSize,
         RefName refName,
@@ -57,7 +53,7 @@ public class Nutrient {
         UnitAmountGram saturatedFattyAcids,
         UnitAmountGram transFat
     ) {
-        this.food = food;
+        this.foodId = foodId;
         this.researchYear = researchYear;
         this.servingSize = servingSize;
         this.refName = refName;
@@ -73,7 +69,7 @@ public class Nutrient {
     }
 
     public static Nutrient of(
-        Food food,
+        Long foodId,
         long researchYear,
         long servingSize,
         String refName,
@@ -88,7 +84,7 @@ public class Nutrient {
         double transFat
     ) {
         return new Nutrient(
-            food,
+            foodId,
             ResearchYear.from(researchYear),
             ServingSize.from(servingSize),
             RefName.from(refName),
