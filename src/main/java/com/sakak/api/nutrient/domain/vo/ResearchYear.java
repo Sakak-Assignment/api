@@ -3,6 +3,7 @@ package com.sakak.api.nutrient.domain.vo;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,10 @@ public class ResearchYear {
     }
 
     private static void validateResearchYear(Long year) {
-        if (year < MIN_RESEARCH_YEAR && LocalDateTime.now().getYear() < year) {
+        if (Objects.isNull(year)
+            || year < MIN_RESEARCH_YEAR
+            && LocalDateTime.now().getYear() < year
+        ) {
             throw new IllegalArgumentException("invalid research year");
         }
     }

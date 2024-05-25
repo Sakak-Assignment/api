@@ -3,6 +3,7 @@ package com.sakak.api.nutrient.domain;
 import com.sakak.api.food.domain.Food;
 import com.sakak.api.nutrient.domain.vo.RefName;
 import com.sakak.api.nutrient.domain.vo.ResearchYear;
+import com.sakak.api.nutrient.domain.vo.ServingSize;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Nutrient {
     @JoinColumn(name = "food_id")
     private Food food;
     private ResearchYear researchYear;
-    private Long servingSize;
+    private ServingSize servingSize;
     private RefName refName;
     private BigDecimal calorie;
     private BigDecimal carbohydrate;
@@ -41,7 +42,7 @@ public class Nutrient {
     private Nutrient(
         Food food,
         ResearchYear researchYear,
-        Long servingSize,
+        ServingSize servingSize,
         RefName refName,
         BigDecimal calorie,
         BigDecimal carbohydrate,
@@ -86,7 +87,7 @@ public class Nutrient {
         return new Nutrient(
             food,
             ResearchYear.from(researchYear),
-            servingSize,
+            ServingSize.from(servingSize),
             RefName.from(refName),
             calorie,
             carbohydrate,
@@ -106,6 +107,10 @@ public class Nutrient {
 
     public Long getResearchYear() {
         return researchYear.getYear();
+    }
+
+    public Long getServingSize() {
+        return servingSize.getSize();
     }
 
 }
