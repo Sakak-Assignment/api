@@ -24,7 +24,7 @@ public record FoodNutrientResponse(
     BigDecimal transFat
 ) {
 
-    static FoodNutrientResponse of(Food food, Nutrient nutrient) {
+    public static FoodNutrientResponse of(Food food, Nutrient nutrient) {
         return new FoodNutrientResponse(
             food.getId(),
             food.getFoodCode(),
