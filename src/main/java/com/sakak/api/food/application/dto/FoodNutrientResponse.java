@@ -1,9 +1,12 @@
 package com.sakak.api.food.application.dto;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.sakak.api.food.domain.Food;
 import com.sakak.api.nutrient.domain.Nutrient;
 import java.math.BigDecimal;
 
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record FoodNutrientResponse(
     Long id,
     String foodCd,
