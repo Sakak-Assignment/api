@@ -26,7 +26,7 @@ public class FoodService {
         String foodCode,
         String foodName,
         String makerName,
-        long researchYear
+        Long researchYear
     ) {
         Food food = foodRepository.findByFoodCodeAndFoodNameAndMakerName(
             FoodCode.from(foodCode),

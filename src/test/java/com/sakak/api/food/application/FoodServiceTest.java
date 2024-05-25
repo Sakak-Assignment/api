@@ -90,7 +90,7 @@ class FoodServiceTest {
             "D없는코드",
             "asdf",
             "asdf",
-            2022
+            2022L
         );
 
         //then
@@ -107,7 +107,7 @@ class FoodServiceTest {
             savedFood.getFoodCode(),
             savedFood.getFoodName(),
             savedFood.getMakerName(),
-            2000
+            2000L
         );
 
         //then
