@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NutrientRepository extends JpaRepository<Nutrient, Long> {
 
-    Optional<Nutrient> findByFoodIdAndResearchYear(Long foodId, long researchYear);
+    Optional<Nutrient> findByFoodIdAndResearchYear(Long foodId, Long researchYear);
 }

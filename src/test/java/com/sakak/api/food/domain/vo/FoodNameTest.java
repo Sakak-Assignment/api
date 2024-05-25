@@ -18,7 +18,7 @@ class FoodNameTest {
         FoodName validFoodName = FoodName.from(foodName);
 
         //then
-        assertThat(validFoodName.getName()).isEqualTo(foodName);
+        assertThat(validFoodName.getFoodName()).isEqualTo(foodName);
     }
 
     @ParameterizedTest

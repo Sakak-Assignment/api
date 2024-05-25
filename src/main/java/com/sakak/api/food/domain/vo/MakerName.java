@@ -13,20 +13,20 @@ import lombok.NoArgsConstructor;
 public class MakerName {
 
     @Column(nullable = false)
-    private String name;
+    private String makerName;
 
-    private MakerName(String name) {
-        this.name = name;
+    private MakerName(String makerName) {
+        this.makerName = makerName;
     }
 
-    public static MakerName from(String name) {
-        validateMakerName(name);
-        return new MakerName(name);
+    public static MakerName from(String makerName) {
+        validateMakerName(makerName);
+        return new MakerName(makerName);
     }
 
     private static void validateMakerName(String makerName) {
         if (Objects.isNull(makerName) || makerName.isEmpty()) {
-            throw new IllegalArgumentException("invalid maker name");
+            throw new IllegalArgumentException("invalid maker makerName");
         }
     }
 

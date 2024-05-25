@@ -13,19 +13,19 @@ import lombok.NoArgsConstructor;
 public class GroupName {
 
     @Column(nullable = false)
-    private String name;
+    private String groupName;
 
-    private GroupName(String name) {
-        this.name = name;
+    private GroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    public static GroupName from(String name) {
-        validateGroupName(name);
-        return new GroupName(name);
+    public static GroupName from(String groupName) {
+        validateGroupName(groupName);
+        return new GroupName(groupName);
     }
 
-    private static void validateGroupName(String makerName) {
-        if (Objects.isNull(makerName) || makerName.isEmpty()) {
+    private static void validateGroupName(String groupName) {
+        if (Objects.isNull(groupName) || groupName.isEmpty()) {
             throw new IllegalArgumentException("invalid group name");
         }
     }

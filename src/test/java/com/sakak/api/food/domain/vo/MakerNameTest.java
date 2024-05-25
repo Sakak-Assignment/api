@@ -18,7 +18,7 @@ class MakerNameTest {
         MakerName validMakerName = MakerName.from(makerName);
 
         //then
-        assertThat(validMakerName.getName()).isEqualTo(makerName);
+        assertThat(validMakerName.getMakerName()).isEqualTo(makerName);
     }
 
     @ParameterizedTest

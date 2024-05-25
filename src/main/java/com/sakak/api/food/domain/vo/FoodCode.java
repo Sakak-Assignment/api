@@ -13,20 +13,23 @@ import lombok.NoArgsConstructor;
 public class FoodCode {
 
     @Column(nullable = false)
-    private String code;
+    private String foodCode;
 
-    private FoodCode(String code) {
-        this.code = code;
+    private FoodCode(String foodCode) {
+        this.foodCode = foodCode;
     }
 
-    public static FoodCode from(String code) {
-        validateCodeForm(code);
-        return new FoodCode(code);
+    public static FoodCode from(String foodCode) {
+        validateFoodCodeForm(foodCode);
+        return new FoodCode(foodCode);
     }
 
-    private static void validateCodeForm(String code) {
-        if (Objects.isNull(code) || code.isEmpty() || !Character.isAlphabetic(code.charAt(0))) {
-            throw new IllegalArgumentException("invalid code form");
+    private static void validateFoodCodeForm(String foodCode) {
+        if (Objects.isNull(foodCode)
+            || foodCode.isEmpty()
+            || !Character.isAlphabetic(foodCode.charAt(0))
+        ) {
+            throw new IllegalArgumentException("invalid food code form");
         }
     }
 

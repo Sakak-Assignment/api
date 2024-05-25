@@ -19,7 +19,7 @@ class FoodCodeTest {
         FoodCode validFoodCode = FoodCode.from(foodCode);
 
         //then
-        assertThat(validFoodCode.getCode()).isEqualTo(foodCode);
+        assertThat(validFoodCode.getFoodCode()).isEqualTo(foodCode);
     }
 
     @ParameterizedTest

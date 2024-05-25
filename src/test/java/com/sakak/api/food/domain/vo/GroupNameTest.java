@@ -18,7 +18,7 @@ class GroupNameTest {
         GroupName validGroupName = GroupName.from(groupName);
 
         //then
-        assertThat(validGroupName.getName()).isEqualTo(groupName);
+        assertThat(validGroupName.getGroupName()).isEqualTo(groupName);
     }
 
     @ParameterizedTest

@@ -1,12 +1,10 @@
 package com.sakak.api.nutrient.domain;
 
-import com.sakak.api.food.domain.Food;
 import com.sakak.api.nutrient.domain.vo.Calorie;
 import com.sakak.api.nutrient.domain.vo.RefName;
 import com.sakak.api.nutrient.domain.vo.ResearchYear;
 import com.sakak.api.nutrient.domain.vo.ServingSize;
-import com.sakak.api.nutrient.domain.vo.UnitAmountGram;
-import com.sakak.api.nutrient.domain.vo.UnitAmountMilligram;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,18 +23,21 @@ public class Nutrient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long foodId;
+
+    @Embedded
     private ResearchYear researchYear;
+
+    @Embedded
     private ServingSize servingSize;
+
+    @Embedded
     private RefName refName;
+
+    @Embedded
     private Calorie calorie;
-    private UnitAmountGram carbohydrate;
-    private UnitAmountGram protein;
-    private UnitAmountGram province;
-    private UnitAmountGram sugars;
-    private UnitAmountMilligram salt;
-    private UnitAmountMilligram cholesterol;
-    private UnitAmountGram saturatedFattyAcids;
-    private UnitAmountGram transFat;
+
+    @Embedded
+    private UnitAmountInfo unitAmountInfo;
 
     private Nutrient(
         Long foodId,
@@ -44,28 +45,14 @@ public class Nutrient {
         ServingSize servingSize,
         RefName refName,
         Calorie calorie,
-        UnitAmountGram carbohydrate,
-        UnitAmountGram protein,
-        UnitAmountGram province,
-        UnitAmountGram sugars,
-        UnitAmountMilligram salt,
-        UnitAmountMilligram cholesterol,
-        UnitAmountGram saturatedFattyAcids,
-        UnitAmountGram transFat
+        UnitAmountInfo unitAmountInfo
     ) {
         this.foodId = foodId;
         this.researchYear = researchYear;
         this.servingSize = servingSize;
         this.refName = refName;
         this.calorie = calorie;
-        this.carbohydrate = carbohydrate;
-        this.protein = protein;
-        this.province = province;
-        this.sugars = sugars;
-        this.salt = salt;
-        this.cholesterol = cholesterol;
-        this.saturatedFattyAcids = saturatedFattyAcids;
-        this.transFat = transFat;
+        this.unitAmountInfo = unitAmountInfo;
     }
 
     public static Nutrient of(
@@ -89,14 +76,16 @@ public class Nutrient {
             ServingSize.from(servingSize),
             RefName.from(refName),
             Calorie.from(calorie),
-            UnitAmountGram.from(carbohydrate),
-            UnitAmountGram.from(protein),
-            UnitAmountGram.from(province),
-            UnitAmountGram.from(sugars),
-            UnitAmountMilligram.from(salt),
-            UnitAmountMilligram.from(cholesterol),
-            UnitAmountGram.from(saturatedFattyAcids),
-            UnitAmountGram.from(transFat)
+            UnitAmountInfo.of(
+                carbohydrate,
+                protein,
+                province,
+                sugars,
+                salt,
+                cholesterol,
+                saturatedFattyAcids,
+                transFat
+            )
         );
     }
 
@@ -117,35 +106,35 @@ public class Nutrient {
     }
 
     public BigDecimal getCarbohydrate() {
-        return carbohydrate.getGram();
+        return unitAmountInfo.getCarbohydrate();
     }
 
     public BigDecimal getProtein() {
-        return protein.getGram();
+        return unitAmountInfo.getProtein();
     }
 
     public BigDecimal getProvince() {
-        return province.getGram();
+        return unitAmountInfo.getProvince();
     }
 
     public BigDecimal getSugars() {
-        return sugars.getGram();
+        return unitAmountInfo.getSugars();
     }
 
     public BigDecimal getSalt() {
-        return salt.getMilligram();
+        return unitAmountInfo.getSalt();
     }
 
     public BigDecimal getCholesterol() {
-        return cholesterol.getMilligram();
+        return unitAmountInfo.getCholesterol();
     }
 
     public BigDecimal getSaturatedFattyAcids() {
-        return saturatedFattyAcids.getGram();
+        return unitAmountInfo.getSaturatedFattyAcids();
     }
 
     public BigDecimal getTransFat() {
-        return transFat.getGram();
+        return unitAmountInfo.getTransFat();
     }
 
 }

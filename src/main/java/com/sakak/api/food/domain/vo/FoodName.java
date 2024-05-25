@@ -13,20 +13,20 @@ import lombok.NoArgsConstructor;
 public class FoodName {
 
     @Column(nullable = false)
-    private String name;
+    private String foodName;
 
-    private FoodName(String name) {
-        this.name = name;
+    private FoodName(String foodName) {
+        this.foodName = foodName;
     }
 
-    public static FoodName from(String name) {
-        validateFoodName(name);
-        return new FoodName(name);
+    public static FoodName from(String foodName) {
+        validateFoodName(foodName);
+        return new FoodName(foodName);
     }
 
     private static void validateFoodName(String foodName) {
         if (Objects.isNull(foodName) || foodName.isEmpty()) {
-            throw new IllegalArgumentException("invalid food name");
+            throw new IllegalArgumentException("invalid food foodName");
         }
     }
 

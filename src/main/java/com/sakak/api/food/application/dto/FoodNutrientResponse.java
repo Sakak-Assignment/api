@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 public record FoodNutrientResponse(
     Long id,
     String foodCd,
-    String GroupName,
+    String groupName,
     String foodName,
     long researchYear,
     String makerName,

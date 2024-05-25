@@ -51,19 +51,19 @@ public class Food {
     }
 
     public String getFoodCode() {
-        return foodCode.getCode();
+        return foodCode.getFoodCode();
     }
 
     public String getFoodName() {
-        return foodName.getName();
+        return foodName.getFoodName();
     }
 
     public String getMakerName() {
-        return makerName.getName();
+        return makerName.getMakerName();
     }
 
     public String getGroupName() {
-        return makerName.getName();
+        return groupName.getGroupName();
     }
 
 }
