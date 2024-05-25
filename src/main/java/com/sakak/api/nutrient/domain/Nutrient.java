@@ -1,9 +1,12 @@
 package com.sakak.api.nutrient.domain;
 
 import com.sakak.api.food.domain.Food;
+import com.sakak.api.nutrient.domain.vo.Calorie;
 import com.sakak.api.nutrient.domain.vo.RefName;
 import com.sakak.api.nutrient.domain.vo.ResearchYear;
 import com.sakak.api.nutrient.domain.vo.ServingSize;
+import com.sakak.api.nutrient.domain.vo.UnitAmountGram;
+import com.sakak.api.nutrient.domain.vo.UnitAmountMilligram;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,30 +32,30 @@ public class Nutrient {
     private ResearchYear researchYear;
     private ServingSize servingSize;
     private RefName refName;
-    private BigDecimal calorie;
-    private BigDecimal carbohydrate;
-    private BigDecimal protein;
-    private BigDecimal province;
-    private BigDecimal sugars;
-    private BigDecimal salt;
-    private BigDecimal cholesterol;
-    private BigDecimal saturatedFattyAcids;
-    private BigDecimal transFat;
+    private Calorie calorie;
+    private UnitAmountGram carbohydrate;
+    private UnitAmountGram protein;
+    private UnitAmountGram province;
+    private UnitAmountGram sugars;
+    private UnitAmountMilligram salt;
+    private UnitAmountMilligram cholesterol;
+    private UnitAmountGram saturatedFattyAcids;
+    private UnitAmountGram transFat;
 
     private Nutrient(
         Food food,
         ResearchYear researchYear,
         ServingSize servingSize,
         RefName refName,
-        BigDecimal calorie,
-        BigDecimal carbohydrate,
-        BigDecimal protein,
-        BigDecimal province,
-        BigDecimal sugars,
-        BigDecimal salt,
-        BigDecimal cholesterol,
-        BigDecimal saturatedFattyAcids,
-        BigDecimal transFat
+        Calorie calorie,
+        UnitAmountGram carbohydrate,
+        UnitAmountGram protein,
+        UnitAmountGram province,
+        UnitAmountGram sugars,
+        UnitAmountMilligram salt,
+        UnitAmountMilligram cholesterol,
+        UnitAmountGram saturatedFattyAcids,
+        UnitAmountGram transFat
     ) {
         this.food = food;
         this.researchYear = researchYear;
@@ -71,33 +74,33 @@ public class Nutrient {
 
     public static Nutrient of(
         Food food,
-        Long researchYear,
-        Long servingSize,
+        long researchYear,
+        long servingSize,
         String refName,
-        BigDecimal calorie,
-        BigDecimal carbohydrate,
-        BigDecimal protein,
-        BigDecimal province,
-        BigDecimal sugars,
-        BigDecimal salt,
-        BigDecimal cholesterol,
-        BigDecimal saturatedFattyAcids,
-        BigDecimal transFat
+        double calorie,
+        double carbohydrate,
+        double protein,
+        double province,
+        double sugars,
+        double salt,
+        double cholesterol,
+        double saturatedFattyAcids,
+        double transFat
     ) {
         return new Nutrient(
             food,
             ResearchYear.from(researchYear),
             ServingSize.from(servingSize),
             RefName.from(refName),
-            calorie,
-            carbohydrate,
-            protein,
-            province,
-            sugars,
-            salt,
-            cholesterol,
-            saturatedFattyAcids,
-            transFat
+            Calorie.from(calorie),
+            UnitAmountGram.from(carbohydrate),
+            UnitAmountGram.from(protein),
+            UnitAmountGram.from(province),
+            UnitAmountGram.from(sugars),
+            UnitAmountMilligram.from(salt),
+            UnitAmountMilligram.from(cholesterol),
+            UnitAmountGram.from(saturatedFattyAcids),
+            UnitAmountGram.from(transFat)
         );
     }
 
@@ -105,12 +108,48 @@ public class Nutrient {
         return refName.getName();
     }
 
-    public Long getResearchYear() {
+    public long getResearchYear() {
         return researchYear.getYear();
     }
 
-    public Long getServingSize() {
+    public long getServingSize() {
         return servingSize.getSize();
+    }
+
+    public BigDecimal getCalorie() {
+        return calorie.getKcal();
+    }
+
+    public BigDecimal getCarbohydrate() {
+        return carbohydrate.getGram();
+    }
+
+    public BigDecimal getProtein() {
+        return protein.getGram();
+    }
+
+    public BigDecimal getProvince() {
+        return province.getGram();
+    }
+
+    public BigDecimal getSugars() {
+        return sugars.getGram();
+    }
+
+    public BigDecimal getSalt() {
+        return salt.getMilligram();
+    }
+
+    public BigDecimal getCholesterol() {
+        return cholesterol.getMilligram();
+    }
+
+    public BigDecimal getSaturatedFattyAcids() {
+        return saturatedFattyAcids.getGram();
+    }
+
+    public BigDecimal getTransFat() {
+        return transFat.getGram();
     }
 
 }
