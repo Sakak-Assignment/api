@@ -1,12 +1,13 @@
 package com.sakak.api.nutrient.domain.vo;
 
+import com.sakak.api.food.domain.Food;
 import com.sakak.api.nutrient.domain.Nutrient;
 
 public class NutrientFixture {
 
-    public static Nutrient createNutrient() {
+    public static Nutrient createNutrient(Food food) {
         return Nutrient.of(
-            1L,
+            food.getId(),
             2000L,
             3000L,
             "영양소 조사 출처",

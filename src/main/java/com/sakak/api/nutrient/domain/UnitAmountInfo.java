@@ -1,5 +1,6 @@
 package com.sakak.api.nutrient.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import java.math.BigDecimal;
 import lombok.AccessLevel;
@@ -13,20 +14,28 @@ public class UnitAmountInfo {
 
     private static final double MAX_UNIT_AMOUNT = 99999999.0;
 
+    @Column(nullable = false)
     private BigDecimal carbohydrate;
 
+    @Column(nullable = false)
     private BigDecimal protein;
 
+    @Column(nullable = false)
     private BigDecimal province;
 
+    @Column(nullable = false)
     private BigDecimal sugars;
 
+    @Column(nullable = false)
     private BigDecimal salt;
 
+    @Column(nullable = false)
     private BigDecimal cholesterol;
 
+    @Column(nullable = false)
     private BigDecimal saturatedFattyAcids;
 
+    @Column(nullable = false)
     private BigDecimal transFat;
 
     private UnitAmountInfo(

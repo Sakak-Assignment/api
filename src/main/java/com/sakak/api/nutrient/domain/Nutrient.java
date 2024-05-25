@@ -4,12 +4,14 @@ import com.sakak.api.nutrient.domain.vo.Calorie;
 import com.sakak.api.nutrient.domain.vo.RefName;
 import com.sakak.api.nutrient.domain.vo.ResearchYear;
 import com.sakak.api.nutrient.domain.vo.ServingSize;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.math.BigDecimal;
+import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,8 @@ public class Nutrient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private Long foodId;
 
     @Embedded
@@ -70,6 +74,7 @@ public class Nutrient {
         double saturatedFattyAcids,
         double transFat
     ) {
+        validateNull(foodId);
         return new Nutrient(
             foodId,
             ResearchYear.from(researchYear),
@@ -89,12 +94,18 @@ public class Nutrient {
         );
     }
 
+    private static void validateNull(Long foodId) {
+        if (Objects.isNull(foodId) || foodId <= 0L) {
+            throw new IllegalArgumentException("invalid foodId");
+        }
+    }
+
     public String getRefName() {
         return refName.getName();
     }
 
     public long getResearchYear() {
-        return researchYear.getYear();
+        return researchYear.getResearchYear();
     }
 
     public long getServingSize() {

@@ -15,19 +15,19 @@ public class ResearchYear {
     private static final long MIN_RESEARCH_YEAR = 1900L;
 
     @Column(nullable = false)
-    private long year;
+    private long researchYear;
 
-    private ResearchYear(long year) {
-        this.year = year;
+    private ResearchYear(long researchYear) {
+        this.researchYear = researchYear;
     }
 
-    public static ResearchYear from(long year) {
-        validateResearchYear(year);
-        return new ResearchYear(year);
+    public static ResearchYear from(long researchYear) {
+        validateResearchYear(researchYear);
+        return new ResearchYear(researchYear);
     }
 
-    private static void validateResearchYear(long year) {
-        if (year < MIN_RESEARCH_YEAR || LocalDateTime.now().getYear() < year) {
+    private static void validateResearchYear(long researchYear) {
+        if (researchYear < MIN_RESEARCH_YEAR || LocalDateTime.now().getYear() < researchYear) {
             throw new IllegalArgumentException("invalid research year");
         }
     }

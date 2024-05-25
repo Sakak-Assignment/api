@@ -18,7 +18,7 @@ class ResearchYearTest {
         ResearchYear validResearchYear = ResearchYear.from(researchYear);
 
         //then
-        assertThat(validResearchYear.getYear()).isEqualTo(researchYear);
+        assertThat(validResearchYear.getResearchYear()).isEqualTo(researchYear);
     }
 
     @ParameterizedTest
