@@ -2,6 +2,7 @@ package com.sakak.api.nutrient.domain;
 
 import com.sakak.api.food.domain.Food;
 import com.sakak.api.nutrient.domain.vo.RefName;
+import com.sakak.api.nutrient.domain.vo.ResearchYear;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class Nutrient {
     @ManyToOne
     @JoinColumn(name = "food_id")
     private Food food;
-    private Long researchYear;
+    private ResearchYear researchYear;
     private Long servingSize;
     private RefName refName;
     private BigDecimal calorie;
@@ -39,7 +40,7 @@ public class Nutrient {
 
     private Nutrient(
         Food food,
-        Long researchYear,
+        ResearchYear researchYear,
         Long servingSize,
         RefName refName,
         BigDecimal calorie,
@@ -84,7 +85,7 @@ public class Nutrient {
     ) {
         return new Nutrient(
             food,
-            researchYear,
+            ResearchYear.from(researchYear),
             servingSize,
             RefName.from(refName),
             calorie,
@@ -101,6 +102,10 @@ public class Nutrient {
 
     public String getRefName() {
         return refName.getName();
+    }
+
+    public Long getResearchYear() {
+        return researchYear.getYear();
     }
 
 }
