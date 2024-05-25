@@ -1,6 +1,7 @@
 package com.sakak.api.nutrient.domain;
 
 import com.sakak.api.food.domain.Food;
+import com.sakak.api.nutrient.domain.vo.RefName;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +26,7 @@ public class Nutrient {
     private Food food;
     private Long researchYear;
     private Long servingSize;
+    private RefName refName;
     private BigDecimal calorie;
     private BigDecimal carbohydrate;
     private BigDecimal protein;
@@ -39,6 +41,7 @@ public class Nutrient {
         Food food,
         Long researchYear,
         Long servingSize,
+        RefName refName,
         BigDecimal calorie,
         BigDecimal carbohydrate,
         BigDecimal protein,
@@ -52,6 +55,7 @@ public class Nutrient {
         this.food = food;
         this.researchYear = researchYear;
         this.servingSize = servingSize;
+        this.refName = refName;
         this.calorie = calorie;
         this.carbohydrate = carbohydrate;
         this.protein = protein;
@@ -67,6 +71,7 @@ public class Nutrient {
         Food food,
         Long researchYear,
         Long servingSize,
+        String refName,
         BigDecimal calorie,
         BigDecimal carbohydrate,
         BigDecimal protein,
@@ -81,6 +86,7 @@ public class Nutrient {
             food,
             researchYear,
             servingSize,
+            RefName.from(refName),
             calorie,
             carbohydrate,
             protein,
@@ -92,4 +98,9 @@ public class Nutrient {
             transFat
         );
     }
+
+    public String getRefName() {
+        return refName.getName();
+    }
+
 }
