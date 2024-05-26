@@ -101,7 +101,7 @@ public class Nutrient {
     }
 
     public String getRefName() {
-        return refName.getName();
+        return refName.getRefName();
     }
 
     public long getResearchYear() {
@@ -109,11 +109,11 @@ public class Nutrient {
     }
 
     public long getServingSize() {
-        return servingSize.getSize();
+        return servingSize.getServingSize();
     }
 
     public BigDecimal getCalorie() {
-        return calorie.getKcal();
+        return calorie.getCalorie();
     }
 
     public BigDecimal getCarbohydrate() {

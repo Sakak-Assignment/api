@@ -12,20 +12,20 @@ import lombok.NoArgsConstructor;
 public class ServingSize {
 
     @Column(nullable = false)
-    private long size;
+    private long servingSize;
 
-    private ServingSize(long size) {
-        this.size = size;
+    private ServingSize(long servingSize) {
+        this.servingSize = servingSize;
     }
 
-    public static ServingSize from(long size) {
-        validateServingSize(size);
-        return new ServingSize(size);
+    public static ServingSize from(long servingSize) {
+        validateServingSize(servingSize);
+        return new ServingSize(servingSize);
     }
 
     private static void validateServingSize(long servingSize) {
         if (servingSize <= 0) {
-            throw new IllegalArgumentException("invalid serving size");
+            throw new IllegalArgumentException("invalid serving servingSize");
         }
     }
 

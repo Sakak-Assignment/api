@@ -15,19 +15,19 @@ public class Calorie {
     private static final double MAX_CALORIE = 99999999.0;
 
     @Column(nullable = false)
-    private BigDecimal kcal;
+    private BigDecimal calorie;
 
-    private Calorie(BigDecimal kcal) {
-        this.kcal = kcal;
+    private Calorie(BigDecimal calorie) {
+        this.calorie = calorie;
     }
 
-    public static Calorie from(double kcal) {
-        validateCalorie(kcal);
-        return new Calorie(BigDecimal.valueOf(kcal));
+    public static Calorie from(double calorie) {
+        validateCalorie(calorie);
+        return new Calorie(BigDecimal.valueOf(calorie));
     }
 
-    private static void validateCalorie(double kcal) {
-        if (kcal < 0 || MAX_CALORIE < kcal) {
+    private static void validateCalorie(double calorie) {
+        if (calorie < 0 || MAX_CALORIE < calorie) {
             throw new IllegalArgumentException("invalid Calorie");
         }
     }

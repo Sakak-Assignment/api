@@ -13,19 +13,19 @@ import lombok.NoArgsConstructor;
 public class RefName {
 
     @Column(nullable = false)
-    private String name;
+    private String refName;
 
-    private RefName(String name) {
-        this.name = name;
+    private RefName(String refName) {
+        this.refName = refName;
     }
 
-    public static RefName from(String name) {
-        validateRefName(name);
-        return new RefName(name);
+    public static RefName from(String refName) {
+        validateRefName(refName);
+        return new RefName(refName);
     }
 
-    private static void validateRefName(String name) {
-        if (Objects.isNull(name) || name.isEmpty()) {
+    private static void validateRefName(String refName) {
+        if (Objects.isNull(refName) || refName.isEmpty()) {
             throw new IllegalArgumentException("invalid ref name");
         }
     }
