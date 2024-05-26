@@ -18,7 +18,7 @@ class RefNameTest {
         RefName validRefName = RefName.from(refName);
 
         //then
-        assertThat(validRefName.getName()).isEqualTo(refName);
+        assertThat(validRefName.getRefName()).isEqualTo(refName);
     }
 
     @ParameterizedTest

@@ -19,7 +19,7 @@ class CalorieTest {
         Calorie validCalorie = Calorie.from(calorie);
 
         //then
-        assertThat(validCalorie.getKcal()).isEqualTo(BigDecimal.valueOf(calorie));
+        assertThat(validCalorie.getCalorie()).isEqualTo(BigDecimal.valueOf(calorie));
     }
 
     @ParameterizedTest

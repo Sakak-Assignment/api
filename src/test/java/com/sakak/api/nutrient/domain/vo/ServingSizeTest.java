@@ -18,7 +18,7 @@ class ServingSizeTest {
         ServingSize validServingSize = ServingSize.from(servingSize);
 
         //then
-        assertThat(validServingSize.getSize()).isEqualTo(servingSize);
+        assertThat(validServingSize.getServingSize()).isEqualTo(servingSize);
     }
 
     @ParameterizedTest
