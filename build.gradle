@@ -35,6 +35,11 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 }
 
+bootJar {
+	archiveFileName = 'sakak.jar'
+}
+
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
