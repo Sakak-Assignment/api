@@ -56,8 +56,7 @@ class FoodControllerTest {
         // when
         ExtractableResponse<Response> response = given().log().all()
             .when()
-//            .queryParam("food_code", savedFood.getFoodCode())
-            .queryParam("food_code", "aaaaaa")
+            .queryParam("food_code", savedFood.getFoodCode())
             .queryParam("food_name", savedFood.getFoodName())
             .queryParam("maker_name", savedFood.getMakerName())
             .queryParam("research_year", savedNutrient.getResearchYear())
