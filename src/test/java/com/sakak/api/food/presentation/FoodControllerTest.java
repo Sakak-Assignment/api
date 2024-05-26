@@ -60,7 +60,7 @@ class FoodControllerTest {
             .queryParam("food_name", savedFood.getFoodName())
             .queryParam("maker_name", savedFood.getMakerName())
             .queryParam("research_year", savedNutrient.getResearchYear())
-            .get("/foods/nutrients")
+            .get(String.format("/foods/%s/nutrients", savedFood.getFoodCode()))
             .then().log().all()
             .extract();
 
